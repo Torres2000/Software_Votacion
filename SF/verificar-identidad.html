@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificar identidad</title>
+    <link rel="stylesheet" href="./estilos/estilos-verificar-identidad.css" />
+  </head>
+  <body>
+    <section class="verificar-identidad">
+      <div>
+        <h1>Verificación de Identidad</h1>
+        <p>Compruebe que la siguiente información sea correcta</p>
+      </div>
+      <div>
+        <div class="contenido">
+          <div>
+            <div class="verificar">
+              <label for="codigo">Codigo Estudiantil</label>
+              <input type="text" name="codigo" id="codigo" value="0000" readonly />
+            </div>
+            <div class="verificar">
+              <label for="identificacion">Identificación</label>
+              <input type="text" name="identificacion" id="identificacion" readonly value="0000" />
+            </div>
+            <div class="verificar">
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" id="nombre" value="Nombre" readonly />
+            </div>
+            <div class="verificar">
+              <label for="apellido">Apellidos</label>
+              <input type="text" name="apellido" id="apellido" value="apellido" readonly />
+            </div>
+            <div class="verificar">
+              <label for="grado">Grado</label>
+              <input type="text" name="grado" id="grado" value="6°" readonly />
+            </div>
+          </div>
+          <div>
+            <img src="./iconos/graduado.png" alt="" class="img-estudiante" readonly />
+          </div>
+        </div>
+      </div>
+      <div class="btn">
+        <button id="error">Esta mal</button>
+        <button id="correcto">Correcta</button>
+      </div>
+    </section>
+  </body>
+</html>
