@@ -16,5 +16,5 @@ app.on("ready", () => {
     win = null;
     app.quit();
   });
-  win.loadFile("index.html");
+  win.loadFile("./SF/index.html");
 });
