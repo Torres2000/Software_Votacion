@@ -30,3 +30,14 @@ a,
 button {
   width: 100%;
 }
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 16px;
+}
+#hora-fecha {
+  margin: 0;
+}
+footer:nth-last-child(1) {
+  text-align: center;
+}
