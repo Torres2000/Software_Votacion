@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resulados Votación</title>
+    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="estilos/estilos-resultados.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Resultado General</h1>
+      <div class="total-votos">
+        <label>Votantes Registrados</label>
+        <span>1188</span>
+        <label>Total de Votantes</label>
+        <span>1134</span>
+        <label>Porcentaje de Abstención</label>
+        <span>4.55%</span>
+      </div>
+      <a href="inicio.html" class="btn-atras">Atras</a>
+      <section class="personero">
+        <h2>Personero</h2>
+        <section>
+          <div>
+            <div class="total-votos">
+              <label>Total Votos: </label>
+              <span>390</span>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Puesto</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Votos</th>
+                  <th scope="col">Porcentaje</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Candidato 1</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Candidato 2</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Candidato 3</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Candidato 4</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Candidato 5</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Crear la grafica de los datos-->
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+        </section>
+      </section>
+      <section class="concejo">
+        <h2>Concejo</h2>
+        <section>
+          <div>
+            <div class="total-votos">
+              <label>Total Votos: </label>
+              <span>390</span>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Puesto</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Votos</th>
+                  <th scope="col">Porcentaje</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Candidato 1</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Candidato 2</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Candidato 3</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Candidato 4</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Candidato 5</td>
+                  <td>100</td>
+                  <td>20%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Crear la grafica de los datos-->
+          <div>
+            <canvas id="myChart2"></canvas>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="./script/script-resultados.js"></script>
+
+    <script src="./estilos/bootstrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
