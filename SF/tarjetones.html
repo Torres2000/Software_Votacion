@@ -5,69 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tarjetón</title>
+    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
+
     <link rel="stylesheet" href="estilos/estilos-tarjeton.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
     <section class="container-tarjetones">
       <div>
-        <div>
-          <h1>Tarjetón para Personero</h1>
-          <p>Para votar haga click sobre el candidato de su preferencia</p>
-        </div>
-        <div class="tarjetones">
-          <div class="tarjeton">
-            <div class="tarjeta-candidato">
-              <h4>Candidato #1</h4>
-              <img src="./iconos/candidato.png" alt="" class="img-candidato" />
-            </div>
-            <div class="num-nombre">
-              <span>1</span>
-              <h3>Candidato #1</h3>
-            </div>
-          </div>
-          <div class="tarjeton">
-            <div class="tarjeta-candidato">
-              <h4>Candidato #1</h4>
-              <img src="./iconos/candidato.png" alt="" class="img-candidato" />
-            </div>
-            <div class="num-nombre">
-              <span>1 </span>
-              <h3>Candidato #1</h3>
-            </div>
-          </div>
-          <div class="tarjeton">
-            <div class="tarjeta-candidato">
-              <h4>Candidato #1</h4>
-              <img src="./iconos/candidato.png" alt="" class="img-candidato" />
-            </div>
-            <div class="num-nombre">
-              <span>1 </span>
-              <h3>Candidato #1</h3>
-            </div>
-          </div>
-          <div class="tarjeton">
-            <div class="tarjeta-candidato">
-              <h4>Candidato #1</h4>
-              <img src="./iconos/candidato.png" alt="" class="img-candidato" />
-            </div>
-            <div class="num-nombre">
-              <span>1 </span>
-              <h3>Candidato #1</h3>
-            </div>
-          </div>
-          <div class="tarjeton-voto-blanco">
-            <div class="tarjeta-candidato">
-              <h4>Voto en Blanco</h4>
-              <img src="./iconos/voto-en-blanco.jpeg" alt="" class="img-candidato" />
-            </div>
-            <div class="num-nombre">
-              <span>4 </span>
-              <h3>Voto en Blanco</h3>
-            </div>
-          </div>
-        </div>
+        <h1>Tarjetón para Personero</h1>
+        <p>Para votar haga click sobre el candidato de su preferencia</p>
       </div>
+      <form class="opciones" id="formulario-voto">
+        <div class="option" id="candidato1">
+          <label for="candidate1">
+            Candidato 1
+            <img src="./iconos/candidato.png" alt="" class="img-candidato" />
+          </label>
+          <input type="radio" class="radio-opciones" name="candidate" value="1" id="candidate1" />
+        </div>
+
+        <div class="option">
+          <label for="candidate2">Candidato 2 <img src="./iconos/candidato.png" alt="" class="img-candidato" /></label>
+          <input type="radio" class="radio-opciones" name="candidate" value="2" id="candidate2" />
+        </div>
+
+        <div class="option div-clickeable">
+          <label for="candidate3">Candidato 3 <img src="./iconos/candidato.png" alt="" class="img-candidato" /></label>
+          <input type="radio" class="radio-opciones" name="candidate" value="3" id="candidate3" />
+        </div>
+      </form>
+      <a href="#">
+        <button class="btn btn-success" id="submitBtn"><img src="./iconos/votacion.png" class="btn-votar" alt="" /> VOTAR</button>
+      </a>
     </section>
+    <a href="inicio.html">Inicio</a>
+
+    <script src="estilos/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="script/script-tarjetones.js"></script>
   </body>
 </html>

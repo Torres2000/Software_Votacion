@@ -6,24 +6,21 @@ body {
   font-family: "Open Sans", sans-serif;
   background: #e8e8e8;
 }
-.option {
-  margin-bottom: 10px;
-}
+
 .container-tarjetones {
   text-align: center;
   border: 1px solid;
   border-radius: 12px;
   padding: 8px;
 }
+.opciones {
+  display: flex;
+  gap: 8px;
+}
 .tarjetones {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
-}
-.tarjeton {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 .tarjeton-voto-blanco {
   display: flex;
@@ -34,41 +31,31 @@ body {
   width: 80px;
   border-radius: 12px;
 }
-.num-nombre {
+.option {
   display: flex;
-  align-items: center;
-  gap: 4px;
-}
-h4 {
-  color: rgb(0, 0, 0);
-  font-size: 24px;
-  text-align: center;
-}
-h3,
-span {
-  font-size: 18px;
-  font-weight: normal;
-}
-.tarjeta-candidato {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 250px;
-  border: 1px solid;
-  border-radius: 16px;
-  padding: 12px 0px 12px 0px;
-  background: rgb(255, 119, 0);
+  flex-direction: column;
   background: linear-gradient(
     225deg,
     rgba(255, 119, 0, 0.9920343137254902) 0%,
     rgba(255, 145, 0, 1) 46%,
     rgba(255, 248, 0, 1) 100%
   );
-  height: 100px;
-  padding: 8px;
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 16px;
   cursor: pointer;
 }
-.tarjeta-candidato:hover {
-  background: rgb(255, 255, 255);
+button {
+  margin: 32px 0px 32px 0px;
+}
+.radio-opciones {
+  height: 32px;
+}
+label,
+input {
+  cursor: pointer;
+}
+.btn-votar {
+  width: 20px;
+  filter: invert(1);
 }
