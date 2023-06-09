@@ -1,6 +1,6 @@
 "use strict";
 
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 
 app.on("before-quit", () => {
   console.log("Saliendo..");
@@ -16,5 +16,9 @@ app.on("ready", () => {
     win = null;
     app.quit();
   });
-  win.loadFile("./SF/index.html");
+  win.loadFile("./SF/index.html"); // Escucha el evento 'cerrar-aplicacion' desde el proceso de renderizado
+  ipcMain.on("cerrar-aplicacion", () => {
+    win = null;
+    app.quit();
+  });
 });

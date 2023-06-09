@@ -5,38 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
-    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="estilos/estilos-inicio.css" />
   </head>
   <body>
     <main>
-      <h1>Nombre de la institucion</h1>
+      <h1>Nombre de la institución</h1>
       <section>
-        <div>
-          <img src="./iconos/caja-de-votacion.png" alt="" class="img-logo-institucion" />
+        <div class="container-logo">
+          <img src="./img/logo.png" alt="" class="img-logo" />
         </div>
         <div class="botones-nav">
           <a href="resultados.html">
-            <button class="btn btn-success">Ver Resultados</button>
+            <button class="btn">Ver Resultados</button>
           </a>
           <a href="tarjetones.html">
-            <button class="btn btn-info">Ver Tarjetones</button>
+            <button class="btn">Ver Tarjetones</button>
           </a>
           <a href="verificar-identidad.html">
-            <button class="btn btn-primary">Verificar Identidad</button>
+            <button class="btn">Verificar Identidad</button>
+          </a>
+          <a href="ingresar-votantes.html">
+            <button class="btn">Ingresar Votantes</button>
+          </a>
+          <a href="#">
+            <button class="btn">SALIR</button>
           </a>
         </div>
       </section>
-      <footer>
-        <div>
-          <p id="hora-fecha"></p>
-        </div>
-        <div>
-          <button class="btn btn-danger">SALIR</button>
-        </div>
-      </footer>
+      <p id="hora-fecha"></p>
     </main>
     <script src="script/script-inicio.js"></script>
-    <script src="./estilos/bootstrap/bootstrap.bundle.min.js"></script>
   </body>
 </html>

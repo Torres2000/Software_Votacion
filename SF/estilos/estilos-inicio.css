@@ -1,15 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,300&display=swap");
-
+:root {
+  --Color1: #004d7a;
+  --Color2: #0096d6;
+  --Color3: #333333;
+  --Color4: #f5f5f5;
+  --Color5: #ffffff;
+  --Color6: #006d5b;
+  --Color7: #00a78e;
+  --Color8: #4c2a85;
+  --Color9: #8c5fc2;
+  --Color10: #2980b9;
+  --Color11: #6dd5fa;
+}
 body {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e8e8e8;
+  background: linear-gradient(224deg, var(--Color10) 40%, var(--Color11));
   font-family: "Open Sans", sans-serif;
+}
+main {
+  position: relative;
 }
 h1 {
   text-align: center;
+}
+.container-logo {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 section {
   display: grid;
@@ -23,21 +45,45 @@ section {
   align-items: center;
   justify-content: center;
 }
-.img-logo-institucion {
-  width: 300px;
-}
 a,
 button {
   width: 100%;
 }
-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 16px;
-}
 #hora-fecha {
-  margin: 0;
+  width: 100%;
+  margin: 40px 0;
+  border: 1px solid;
+  text-align: center;
 }
 footer:nth-last-child(1) {
   text-align: center;
+}
+.btn {
+  cursor: pointer;
+  background-color: var(--Color7);
+  color: var(--Color5);
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  font-size: 16px;
+}
+.btn:hover {
+  background-color: var(--Color6);
+  transition: background-color 0.5s, border 0.2s;
+  -webkit-transition: background-color 0.5s, border 0.2s;
+  -moz-transition: background-color 0.5s, border 0.2s;
+  -ms-transition: background-color 0.5s, border 0.2s;
+  -o-transition: background-color 0.5s, border 0.2s;
+}
+@media screen and (max-width: 900px) {
+  section {
+    grid-template-columns: 1fr;
+  }
+  .img-logo {
+    width: 250px;
+  }
 }

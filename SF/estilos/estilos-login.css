@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,300&display=swap");
 
+:root {
+  --Color1: #004d7a;
+  --Color2: #0096d6;
+  --Color3: #333333;
+  --Color4: #f5f5f5;
+  --Color5: #ffffff;
+  --Color6: #006d5b;
+  --Color7: #00a78e;
+  --Color8: #4c2a85;
+  --Color9: #8c5fc2;
+  --Color10: #2980b9;
+  --Color11: #6dd5fa;
+}
 body {
   height: 100vh;
   display: flex;
@@ -7,13 +20,30 @@ body {
   justify-content: center;
   background: #e8e8e8;
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+main {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(224deg, #2980b9 40%, #6dd5fa);
+}
+main section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 /*
 Estilos para el login
 */
 .login {
-  color: #000;
+  color: var(--Color1);
   text-transform: uppercase;
   letter-spacing: 2px;
   display: block;
@@ -29,7 +59,7 @@ Estilos para el login
   width: 350px;
   flex-direction: column;
   gap: 35px;
-  background: #e3e3e3;
+  background: var(--Color4);
   border-radius: 8px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.57);
 }
@@ -74,15 +104,15 @@ Estilos para el login
   transform: translateX(140px) translateY(-12px);
   font-size: 0.8em;
   padding: 5px 10px;
-  background: #000;
+  background: var(--Color7);
   letter-spacing: 0.2em;
-  color: #fff;
+  color: var(--Color3);
   border: 2px;
 }
 
 .inputBox input:valid,
 .inputBox input:focus {
-  border: 2px solid #000;
+  border: 2px solid var(--Color3);
   border-radius: 8px;
 }
 
@@ -98,7 +128,7 @@ Estilos para el login
 }
 
 .container-ingresar:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--Color6);
 }
 .container-ingresar:hover > .enter {
   color: rgb(255, 255, 255);
@@ -111,7 +141,7 @@ Estilos para el login
 .container-ingresar {
   cursor: pointer;
   transition: 0.5s;
-  border: 2px solid #000;
+  border: 2px solid var(--Color6);
   border-radius: 5px;
   height: 45px;
   display: flex;
@@ -120,4 +150,17 @@ Estilos para el login
 }
 .icono-ingresar {
   width: 40px;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+  .img-logo {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  main section {
+    height: auto;
+  }
 }
