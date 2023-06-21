@@ -9,7 +9,38 @@
   </head>
   <body>
     <main>
-      <h1>Registrar Votantes</h1>
+      <section class="seccion-izquierda">
+        <img src="./img/logo.png" alt="Escudo del colegio" class="img-logo" />
+        <span>Nombre del colegio</span>
+        <p>Incripcion de estudiantes para elegir personero</p>
+      </section>
+      <section class="seccion-derecha">
+        <h1>Registro de votantes</h1>
+        <form action="#">
+          <div class="campos">
+            <label for="codigo">Código Estudiantil</label>
+            <input type="text" name="codigo" id="codigo" placeholder="Código Estudiantil" />
+          </div>
+          <div class="campos">
+            <label for="identificacion">Identificación</label>
+            <input type="text" name="identificacion" id="identificacion" placeholder="Identificación" />
+          </div>
+          <div class="campos">
+            <label for="nombre">Nombres</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombres" />
+          </div>
+          <div class="campos">
+            <label for="apellido">Apellidos</label>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" />
+          </div>
+          <div class="campos">
+            <label for="grado">Grado</label>
+            <input type="text" name="grado" id="grado" placeholder="Grado" />
+          </div>
+          <button class="btn-registrar">Registrar Estudiante</button>
+        </form>
+      </section>
     </main>
+    <a href="inicio.html">Inicio</a>
   </body>
 </html>

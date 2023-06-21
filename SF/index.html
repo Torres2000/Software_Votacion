@@ -15,16 +15,16 @@
       </section>
       <section class="contenedor-login">
         <div class="container">
-          <form action="inicio.html">
+          <form action="./php/login.php" method="post">
             <div class="card">
               <a class="login">Inicio de Sesión</a>
               <div class="inputBox">
-                <input type="text" required="required" />
-                <span class="user">Usuario</span>
+                <input type="text" id="identificacion" name="identificacion" required="required" />
+                <span class="user">Identificación</span>
               </div>
 
               <div class="inputBox">
-                <input type="password" required="required" />
+                <input type="password" id="password" name="password" required="required" />
                 <span>Contraseña</span>
               </div>
               <div class="container-ingresar">
