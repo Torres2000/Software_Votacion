@@ -6,8 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registrar Votantes</title>
     <link rel="stylesheet" href="estilos/estilos-ingresar-votantes.css" />
+    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
   </head>
   <body>
+    <section class="nav-bar">
+      <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="inicio.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="verificar-identidad.html">Verificar Identidad</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Resultados
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="resultados.html">Resultado General</a></li>
+            <li><a class="dropdown-item" href="resultado-personero.html">Resultado Personaero</a></li>
+            <li><a class="dropdown-item" href="resultado-consejo.html">Resultado Consejo</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
+            >Votantes</a
+          >
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="ingresar-votantes.html">Registrar Votantes</a></li>
+            <li><a class="dropdown-item" href="actualizar-votantes.html">Actualizar Votantes</a></li>
+            <li><a class="dropdown-item" href="eliminar-votantes.html">Eliminar Votantes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
     <main>
       <section class="seccion-izquierda">
         <img src="./img/logo.png" alt="Escudo del colegio" class="img-logo" />
@@ -16,31 +47,41 @@
       </section>
       <section class="seccion-derecha">
         <h1>Registro de votantes</h1>
-        <form action="#">
+        <form id="formulario" action="./php/insertar-votantes.php" method="post">
           <div class="campos">
             <label for="codigo">Código Estudiantil</label>
-            <input type="text" name="codigo" id="codigo" placeholder="Código Estudiantil" />
+            <input type="number" name="codigo" id="codigo" placeholder="Código Estudiantil" required />
           </div>
           <div class="campos">
             <label for="identificacion">Identificación</label>
-            <input type="text" name="identificacion" id="identificacion" placeholder="Identificación" />
+            <input type="number" name="identificacion" id="identificacion" placeholder="Identificación" required />
           </div>
           <div class="campos">
             <label for="nombre">Nombres</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombres" />
+            <input type="text" name="nombre" id="nombre" placeholder="Nombres" required />
           </div>
           <div class="campos">
             <label for="apellido">Apellidos</label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" />
+            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" required />
           </div>
           <div class="campos">
             <label for="grado">Grado</label>
-            <input type="text" name="grado" id="grado" placeholder="Grado" />
+            <select class="seleccionar-grado" name="grado" id="grado">
+              <option value="Seleccionar">Seleccionar Grado</option>
+              <option value="6">Grado 6</option>
+              <option value="7">Grado 7</option>
+              <option value="8">Grado 8</option>
+              <option value="9">Grado 9</option>
+              <option value="10">Grado 10</option>
+              <option value="11">Grado 11</option>
+            </select>
           </div>
-          <button class="btn-registrar">Registrar Estudiante</button>
+          <button class="btn-registrar" type="submit">Registrar Estudiante</button>
         </form>
       </section>
     </main>
-    <a href="inicio.html">Inicio</a>
+
+    <script src="./script/script-ingresar-votantes.js"></script>
+    <script src="estilos/bootstrap/bootstrap.bundle.min.js"></script>
   </body>
 </html>

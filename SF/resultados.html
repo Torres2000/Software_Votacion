@@ -6,9 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resulados Votación</title>
     <link rel="stylesheet" href="estilos/estilos-resultados.css" />
+    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
+    <section class="nav-bar">
+      <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="inicio.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="verificar-identidad.html">Verificar Identidad</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Resultados
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="resultados.html">Resultado General</a></li>
+            <li><a class="dropdown-item" href="resultado-personero.html">Resultado Personaero</a></li>
+            <li><a class="dropdown-item" href="resultado-consejo.html">Resultado Consejo</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Votantes</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="ingresar-votantes.html">Registrar Votantes</a></li>
+            <li><a class="dropdown-item" href="actualizar-votantes.html">Actualizar Votantes</a></li>
+            <li><a class="dropdown-item" href="eliminar-votantes.html">Eliminar Votantes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
     <main>
       <h1>Resultado General</h1>
       <div class="total-votos">
@@ -19,7 +48,6 @@
         <label>Porcentaje de Abstención</label>
         <span>4.55%</span>
       </div>
-      <a href="inicio.html" class="btn-atras">Atras</a>
       <section class="personero">
         <h2>Personero</h2>
         <section class="resultados-personero">
@@ -134,9 +162,9 @@
           </div>
         </section>
       </section>
-      <a href="inicio.html">Inicio</a>
     </main>
 
     <script src="./script/script-resultados.js"></script>
+    <script src="estilos/bootstrap/bootstrap.bundle.min.js"></script>
   </body>
 </html>

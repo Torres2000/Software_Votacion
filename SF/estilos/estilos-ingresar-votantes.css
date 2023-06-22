@@ -38,10 +38,15 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 5%;
   background: var(--fondo);
   font-family: "Open Sans", sans-serif;
   flex-direction: column;
+}
+.nav-bar {
+  background: var(--input-fondo);
+  padding: 8px;
+  width: 100%;
 }
 h1 {
   color: var(--h1);
@@ -130,6 +135,19 @@ input {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+}
+.seleccionar-grado {
+  padding: 12px 8px;
+  border: none;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  background-color: var(--input-fondo);
+  color: var(--input-color);
 }
 
 @media screen and (max-width: 800px) {

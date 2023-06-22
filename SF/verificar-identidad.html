@@ -6,10 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verificar identidad</title>
     <link rel="stylesheet" href="./estilos/estilos-verificar-identidad.css" />
-
+    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
+    <section class="nav-bar">
+      <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="inicio.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="verificar-identidad.html">Verificar Identidad</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Resultados
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="resultados.html">Resultado General</a></li>
+            <li><a class="dropdown-item" href="resultado-personero.html">Resultado Personaero</a></li>
+            <li><a class="dropdown-item" href="resultado-consejo.html">Resultado Consejo</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Votantes</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="ingresar-votantes.html">Registrar Votantes</a></li>
+            <li><a class="dropdown-item" href="actualizar-votantes.html">Actualizar Votantes</a></li>
+            <li><a class="dropdown-item" href="eliminar-votantes.html">Eliminar Votantes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
     <section class="verificar-identidad">
       <div>
         <h1>Verificación de Identidad</h1>
@@ -50,7 +78,7 @@
         <button id="correcto">Correcta</button>
       </div>
     </section>
-    <a href="inicio.html">Inicio</a>
     <script src="script/scrip-verificar-identidad.js"></script>
+    <script src="estilos/bootstrap/bootstrap.bundle.min.js"></script>
   </body>
 </html>

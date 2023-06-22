@@ -5,35 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
+    <link rel="stylesheet" href="estilos/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="estilos/estilos-inicio.css" />
   </head>
   <body>
-    <main>
-      <h1>Nombre de la institución</h1>
-      <section>
-        <div class="container-logo">
-          <img src="./img/logo.png" alt="" class="img-logo" />
-        </div>
-        <div class="botones-nav">
-          <a href="resultados.html">
-            <button class="btn">Ver Resultados</button>
+    <section class="nav-bar">
+      <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="inicio.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="verificar-identidad.html">Verificar Identidad</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Resultados
           </a>
-          <a href="tarjetones.html">
-            <button class="btn">Ver Tarjetones</button>
-          </a>
-          <a href="verificar-identidad.html">
-            <button class="btn">Verificar Identidad</button>
-          </a>
-          <a href="ingresar-votantes.html">
-            <button class="btn">Ingresar Votantes</button>
-          </a>
-          <a href="#">
-            <button class="btn-salir">SALIR</button>
-          </a>
-        </div>
-      </section>
-      <p id="hora-fecha"></p>
-    </main>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="resultados.html">Resultado General</a></li>
+            <li><a class="dropdown-item" href="resultado-personero.html">Resultado Personaero</a></li>
+            <li><a class="dropdown-item" href="resultado-consejo.html">Resultado Consejo</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Votantes</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="ingresar-votantes.html">Registrar Votantes</a></li>
+            <li><a class="dropdown-item" href="actualizar-votantes.html">Actualizar Votantes</a></li>
+            <li><a class="dropdown-item" href="eliminar-votantes.html">Eliminar Votantes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <div>
+      <img src="./img/logo.png" alt="" />
+    </div>
     <script src="script/script-inicio.js"></script>
+    <script src="estilos/bootstrap/bootstrap.bundle.min.js"></script>
   </body>
 </html>
