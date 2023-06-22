@@ -1,24 +1,61 @@
-"use strict";
+const { app, BrowserWindow, ipcMain, Notification } = require("electron");
+const path = require("path");
+let db = require("./database");
 
-const { app, BrowserWindow, ipcMain } = require("electron");
-
-app.on("before-quit", () => {
-  console.log("Saliendo..");
-});
-app.on("ready", () => {
-  let win = new BrowserWindow({
+let win;
+let winlogin;
+function createWindow() {
+  win = new BrowserWindow({
     width: 800,
     height: 600,
-    title: "Software de Votación",
   });
 
-  win.on("closed", () => {
-    win = null;
-    app.quit();
+  win.loadFile("./SF/inicio.html");
+}
+
+function loginWindow() {
+  winlogin = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, "scrip-login.js"),
+    },
   });
-  win.loadFile("./SF/index.html"); // Escucha el evento 'cerrar-aplicacion' desde el proceso de renderizado
-  ipcMain.on("cerrar-aplicacion", () => {
-    win = null;
-    app.quit();
-  });
+
+  winlogin.loadFile("login.html");
+}
+
+app.whenReady().then(loginWindow);
+
+app.on("window-all-closed", () => {
+  app.quit();
 });
+
+ipcMain.handle("login", (event, obj) => {
+  validatelogin(obj);
+});
+
+function validatelogin(obj) {
+  const { email, password } = obj;
+  const sql = "SELECT * FROM administradores WHERE identificacion=? AND contraseña=?";
+  db.query(sql, [email, password], (error, results, fields) => {
+    if (error) {
+      console.log(error);
+    }
+
+    if (results.length > 0) {
+      createWindow();
+      new Notification({
+        title: "login",
+        body: "Iniciaste sesión correctamente",
+      }).show();
+      win.show();
+      winlogin.close();
+    } else {
+      new Notification({
+        title: "login",
+        body: "email o password equivocado",
+      }).show();
+    }
+  });
+}
