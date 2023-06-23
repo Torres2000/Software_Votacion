@@ -37,10 +37,17 @@
 }
 body {
   height: 100vh;
-  display: grid;
-  place-items: center;
-  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 5%;
   background: var(--fondo);
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+}
+.nav-bar {
+  background: var(--input-fondo);
+  padding: 8px;
+  width: 100%;
 }
 h1 {
   color: var(--h1);
