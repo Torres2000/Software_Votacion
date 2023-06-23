@@ -47,7 +47,7 @@
       </section>
       <section class="seccion-derecha">
         <h1>Registro de votantes</h1>
-        <form id="formulario" action="./php/insertar-votantes.php" method="post">
+        <form id="formulario">
           <div class="campos">
             <label for="codigo">Código Estudiantil</label>
             <input type="number" name="codigo" id="codigo" placeholder="Código Estudiantil" required />
@@ -76,11 +76,10 @@
               <option value="11">Grado 11</option>
             </select>
           </div>
-          <button class="btn-registrar" type="submit">Registrar Estudiante</button>
+          <button class="btn-registrar" id="btn-registrar-votantes" type="submit">Registrar Estudiante</button>
         </form>
       </section>
     </main>
-
     <script src="./script/script-ingresar-votantes.js"></script>
     <script src="estilos/bootstrap/bootstrap.bundle.min.js"></script>
   </body>

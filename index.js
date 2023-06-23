@@ -6,8 +6,11 @@ let win;
 let winlogin;
 function createWindow() {
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 600,
+    height: 800,
+    webPreferences: {
+      preload: path.join(__dirname, "./SF/script/script.js"),
+    },
   });
 
   win.loadFile("./SF/inicio.html");
@@ -18,11 +21,11 @@ function loginWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "scrip-login.js"),
+      preload: path.join(__dirname, "./SF/script/scrip-login.js"),
     },
   });
 
-  winlogin.loadFile("login.html");
+  winlogin.loadFile("./SF/login.html");
 }
 
 app.whenReady().then(loginWindow);
@@ -34,11 +37,10 @@ app.on("window-all-closed", () => {
 ipcMain.handle("login", (event, obj) => {
   validatelogin(obj);
 });
-
 function validatelogin(obj) {
-  const { email, password } = obj;
+  const { identificacion, password } = obj;
   const sql = "SELECT * FROM administradores WHERE identificacion=? AND contraseña=?";
-  db.query(sql, [email, password], (error, results, fields) => {
+  db.query(sql, [identificacion, password], (error, results, fields) => {
     if (error) {
       console.log(error);
     }
@@ -55,6 +57,31 @@ function validatelogin(obj) {
       new Notification({
         title: "login",
         body: "email o password equivocado",
+      }).show();
+    }
+  });
+}
+ipcMain.handle("insertarVotante", (event, obj) => {
+  validateinsertarVotante(obj);
+});
+function validateinsertarVotante(obj) {
+  const { identificacionVotantes, codigoVotantes, nombreVotantes, apellidoVotantes, gradoVotantes } = obj;
+  const sql = "INSERT INTO votantes (identificacion, codestudiantil, nombre, apellido, grado) VALUES (?,?,?,?,?)";
+  const value = [identificacionVotantes, codigoVotantes, nombreVotantes, apellidoVotantes, gradoVotantes];
+  db.query(sql, value, (error, results) => {
+    if (error) {
+      console.log(error);
+    }
+
+    if (results.length > 0) {
+      new Notification({
+        title: "Error",
+        body: "Error al Registrar",
+      }).show();
+    } else {
+      new Notification({
+        title: "Ingresar Votante",
+        body: "Votante Registrado Correctamente",
       }).show();
     }
   });
