@@ -6,23 +6,28 @@ let apellidoVotantes;
 let gradoVotantes;
 let btn_registrar_votantes;
 
+var formularioRegistrarVotantes;
 window.onload = function () {
-  codigoVotantes = document.getElementById("codigo");
-  identificacionVotantes = document.getElementById("identificacion");
-  nombreVotantes = document.getElementById("nombre");
-  apellidoVotantes = document.getElementById("apellido");
-  gradoVotantes = document.getElementById("grado");
+  formularioRegistrarVotantes = document.getElementById("formularioRegistrarVotantes");
+
+  codigoVotantes = document.getElementById("codigo-votantes");
+  identificacionVotantes = document.getElementById("identificacion-votantes");
+  nombreVotantes = document.getElementById("nombre-votantes");
+  apellidoVotantes = document.getElementById("apellido-votantes");
+  gradoVotantes = document.getElementById("grado-votantes");
   btn_registrar_votantes = document.getElementById("btn-registrar-votantes");
-
-  btn_registrar_votantes.onclick = function () {
-    const obj = {
-      identificacionVotantes: identificacionVotantes.value,
-      codigoVotantes: codigoVotantes.value,
-      nombreVotantes: nombreVotantes.value,
-      apellidoVotantes: apellidoVotantes.value,
-      gradoVotantes: gradoVotantes.value,
-    };
-
-    ipcRenderer.invoke("insertarVotante", obj);
-  };
+  btn_registrar_votantes.onclick = registrarVotantes;
 };
+
+function registrarVotantes() {
+  const obj = {
+    identificacionVotantes: identificacionVotantes.value,
+    codigoVotantes: codigoVotantes.value,
+    nombreVotantes: nombreVotantes.value,
+    apellidoVotantes: apellidoVotantes.value,
+    gradoVotantes: gradoVotantes.value,
+  };
+  console.log(obj);
+
+  ipcRenderer.invoke("registrarVotante", obj);
+}

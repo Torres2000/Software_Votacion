@@ -124,17 +124,34 @@ input {
   -o-border-radius: 12px;
   margin: 8px 0px;
   font-size: 16px;
-  background: var(--terciario);
+
   color: var(--h1);
   cursor: pointer;
 }
-.btn-registrar:hover {
-  transform: scale(1.1);
+
+.disabled {
+  cursor: auto;
+  background-color: #9c9d9c;
+}
+.activado {
+  cursor: pointer;
+  background: var(--terciario);
+}
+.activado:hover {
+  transform: scale(1);
   transition: 0.5s;
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+.disabled:hover {
+  transform: scale(1);
+  transition: 0.5s;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
 }
 .seleccionar-grado {
   padding: 12px 8px;

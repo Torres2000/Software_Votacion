@@ -6,13 +6,11 @@ let win;
 let winlogin;
 function createWindow() {
   win = new BrowserWindow({
-    width: 600,
-    height: 800,
     webPreferences: {
       preload: path.join(__dirname, "./SF/script/script.js"),
     },
   });
-
+  win.maximize();
   win.loadFile("./SF/inicio.html");
 }
 
@@ -73,6 +71,31 @@ function validateinsertarVotante(obj) {
       console.log(error);
     }
 
+    if (results.length > 0) {
+      new Notification({
+        title: "Error",
+        body: "Error al Registrar",
+      }).show();
+    } else {
+      new Notification({
+        title: "Ingresar Votante",
+        body: "Votante Registrado Correctamente",
+      }).show();
+    }
+  });
+}
+
+ipcMain.handle("registrarVotante", (event, obj) => {
+  registrarVotante(obj);
+});
+function registrarVotante(obj) {
+  const { identificacionVotantes, codigoVotantes, nombreVotantes, apellidoVotantes, gradoVotantes } = obj;
+  const sql = "INSERT INTO votantes (identificacion, codestudiantil, nombre, apellido, grado) VALUES (?,?,?,?,?)";
+  const value = [identificacionVotantes, codigoVotantes, nombreVotantes, apellidoVotantes, gradoVotantes];
+  db.query(sql, value, (error, results) => {
+    if (error) {
+      console.log(error);
+    }
     if (results.length > 0) {
       new Notification({
         title: "Error",

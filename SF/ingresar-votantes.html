@@ -51,26 +51,26 @@
       </section>
       <section class="seccion-derecha">
         <h1>Registro de votantes</h1>
-        <form id="formulario">
+        <form id="formularioRegistrarVotantes">
           <div class="campos">
             <label for="codigo">Código Estudiantil</label>
-            <input type="number" name="codigo" id="codigo" placeholder="Código Estudiantil" required />
+            <input type="number" name="codigo" id="codigo-votantes" placeholder="Código Estudiantil" required />
           </div>
           <div class="campos">
             <label for="identificacion">Identificación</label>
-            <input type="number" name="identificacion" id="identificacion" placeholder="Identificación" required />
+            <input type="number" name="identificacion" id="identificacion-votantes" placeholder="Identificación" required />
           </div>
           <div class="campos">
             <label for="nombre">Nombres</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombres" required />
+            <input type="text" name="nombre" id="nombre-votantes" placeholder="Nombres" required />
           </div>
           <div class="campos">
             <label for="apellido">Apellidos</label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" required />
+            <input type="text" name="apellido" id="apellido-votantes" placeholder="Apellidos" required />
           </div>
           <div class="campos">
             <label for="grado">Grado</label>
-            <select class="seleccionar-grado" name="grado" id="grado">
+            <select class="seleccionar-grado" name="grado" id="grado-votantes">
               <option value="Seleccionar">Seleccionar Grado</option>
               <option value="6">Grado 6</option>
               <option value="7">Grado 7</option>
@@ -80,7 +80,7 @@
               <option value="11">Grado 11</option>
             </select>
           </div>
-          <button class="btn-registrar" id="btn-registrar-votantes" type="submit">Registrar Estudiante</button>
+          <button class="btn-registrar disabled" id="btn-registrar-votantes" type="submit" disabled>Registrar Estudiante</button>
         </form>
       </section>
     </main>
