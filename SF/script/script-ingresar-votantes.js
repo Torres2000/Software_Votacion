@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   nombreVotantes = document.getElementById("nombre-votantes");
   apellidoVotantes = document.getElementById("apellido-votantes");
   gradoVotantes = document.getElementById("grado-votantes");
+  const validadTexto = /[a-zA-Z]/; // Expresión regular que verifica si hay al menos una letra
 
   formulario.addEventListener("input", function () {
     if (
@@ -24,7 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
       identificacionVotantes.value.trim() !== "" &&
       apellidoVotantes.value.trim() !== ""
     ) {
-      cambio();
+      if (validadTexto.test(nombreVotantes.value) && validadTexto.test(apellidoVotantes.value)) {
+        cambio();
+      } else {
+        alert("Nombre y apellidos son solo texto");
+      }
       /*
       btn_registrar_votantes.disabled = false;
       btn_registrar_votantes.classList.remove("disable");
