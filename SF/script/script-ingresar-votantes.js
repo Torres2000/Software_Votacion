@@ -56,7 +56,9 @@ function cambio() {
     btn_registrar_votantes.classList.add("activado");
   }
 }
-
+btn_registrar_votantes.addEventListener("click", () => {
+  window.insertarVotante.insertarVotantes();
+});
 /*
 const optionSelect = document.getElementById("optionSelect");
 

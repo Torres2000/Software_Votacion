@@ -22,8 +22,8 @@ window.onload = function () {
   nombreVotantes = document.getElementById("nombre-votantes");
   apellidoVotantes = document.getElementById("apellido-votantes");
   gradoVotantes = document.getElementById("grado-votantes");
-  btn_registrar_votantes = document.getElementById("btn-registrar-votantes");
-  btn_registrar_votantes.onclick = registrarVotantes;
+  //btn_registrar_votantes = document.getElementById("btn-registrar-votantes");
+  //btn_registrar_votantes.onclick = registrarVotantes;
 };
 
 function registrarVotantes() {
@@ -43,9 +43,8 @@ async function mostrarVotantes() {
   console.log("Función llamada desde el proceso principal");
   await ipcRenderer.invoke("obtenerVotantes");
 }
-
 // Exponer la función al proceso de renderizado
-contextBridge.exposeInMainWorld("electronAPI", {
+contextBridge.exposeInMainWorld("listaVotantes", {
   mostrarVotantes: mostrarVotantes,
 });
 ipcRenderer.on("listaVotantes", (event, results) => {
@@ -64,3 +63,22 @@ ipcRenderer.on("listaVotantes", (event, results) => {
   });
   mylist.innerHTML = template;
 });
+
+//Codigoa nuevos para insertar votantes
+contextBridge.exposeInMainWorld("insertarVotante", {
+  insertarVotantes: insertarVotantes,
+});
+
+async function insertarVotantes() {
+  console.log("Función llamada desde insertar votantes");
+  const obj = {
+    identificacionVotantes: identificacionVotantes.value,
+    codigoVotantes: codigoVotantes.value,
+    nombreVotantes: nombreVotantes.value,
+    apellidoVotantes: apellidoVotantes.value,
+    gradoVotantes: gradoVotantes.value,
+  };
+  console.log(obj);
+
+  ipcRenderer.invoke("registrarVotante", obj);
+}
