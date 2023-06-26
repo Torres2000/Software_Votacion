@@ -109,3 +109,15 @@ function registrarVotante(obj) {
     }
   });
 }
+ipcMain.handle("obtenerVotantes", () => {
+  obtenerVotante();
+});
+function obtenerVotante() {
+  db.query("SELECT identificacion, codestudiantil, nombre, apellido, grado FROM votantes", (error, results, fields) => {
+    if (error) {
+      console.log("E" + error);
+    }
+
+    win.webContents.send("listaVotantes", results);
+  });
+}
