@@ -7,7 +7,7 @@ let winlogin;
 function createWindow() {
   win = new BrowserWindow({
     webPreferences: {
-      preload: path.join(__dirname, "./SF/script/script.js"),
+      preload: path.join(__dirname, "./SF/script/preload.js"),
     },
   });
   win.maximize();
@@ -84,10 +84,12 @@ function validateinsertarVotante(obj) {
     }
   });
 }
-
+//Obtengo los datos para registrar los votantes
 ipcMain.handle("registrarVotante", (event, obj) => {
+  //LLamo a la funcion y le envio los datos para hacer el insert
   registrarVotante(obj);
 });
+//Creamos la funcion para realizar el insert
 function registrarVotante(obj) {
   const { identificacionVotantes, codigoVotantes, nombreVotantes, apellidoVotantes, gradoVotantes } = obj;
   const sql = "INSERT INTO votantes (identificacion, codestudiantil, nombre, apellido, grado) VALUES (?,?,?,?,?)";
@@ -109,9 +111,12 @@ function registrarVotante(obj) {
     }
   });
 }
+//Obtengo los datos para obtener los votantes
 ipcMain.handle("obtenerVotantes", () => {
+  //LLamo a la funcion para obtener los votantes
   obtenerVotante();
 });
+//funcion para obtener los votantes
 function obtenerVotante() {
   db.query("SELECT identificacion, codestudiantil, nombre, apellido, grado FROM votantes", (error, results, fields) => {
     if (error) {
@@ -119,5 +124,32 @@ function obtenerVotante() {
     }
 
     win.webContents.send("listaVotantes", results);
+  });
+}
+//Obtengo los datos para registrar los candidatos
+ipcMain.handle("registrarCandidato", (event, obj) => {
+  //LLamo a la funcion y le envio los datos para hacer el insert
+  registrarCandidato(obj);
+});
+//Creamos la funcion para realizar el insert
+function registrarCandidato(obj) {
+  const { identificacionCandidato, codigoCandidato, nombreCandidato, apellidoCandidato, gradoCandidato } = obj;
+  const sql = "INSERT INTO candidatos (identificacion, codestudiantil, nombre, apellido, grado) VALUES (?,?,?,?,?)";
+  const value = [identificacionCandidato, codigoCandidato, nombreCandidato, apellidoCandidato, gradoCandidato];
+  db.query(sql, value, (error, results) => {
+    if (error) {
+      console.log(error);
+    }
+    if (results.length > 0) {
+      new Notification({
+        title: "Error",
+        body: "Error al Registrar",
+      }).show();
+    } else {
+      new Notification({
+        title: "Ingresar Candidato",
+        body: "Candidato Registrado Correctamente",
+      }).show();
+    }
   });
 }

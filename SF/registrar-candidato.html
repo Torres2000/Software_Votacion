@@ -54,7 +54,7 @@
     <main>
       <section class="seccion-izquierda">
         <div class="mb-3">
-          <label for="formFile" class="form-label">Default file input example</label>
+          <label for="formFile" class="form-label">Seleccionar Imagen del Candidato</label>
           <input class="form-control" accept="image/*" type="file" id="formFile" />
         </div>
       </section>
@@ -63,23 +63,23 @@
         <form id="formulario" action="#">
           <div class="campos">
             <label for="codigo">Código Estudiantil</label>
-            <input type="number" name="codigo" id="codigo" placeholder="Código Estudiantil" required />
+            <input type="number" name="codigo" id="codigoCandidato" placeholder="Código Estudiantil" required />
           </div>
           <div class="campos">
             <label for="identificacion">Identificación</label>
-            <input type="number" name="identificacion" id="identificacion" placeholder="Identificación" required />
+            <input type="number" name="identificacion" id="identificacionCandidato" placeholder="Identificación" required />
           </div>
           <div class="campos">
             <label for="nombre">Nombres</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombres" required />
+            <input type="text" name="nombre" id="nombreCandidato" placeholder="Nombres" required />
           </div>
           <div class="campos">
             <label for="apellido">Apellidos</label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" required />
+            <input type="text" name="apellido" id="apellidoCandidato" placeholder="Apellidos" required />
           </div>
           <div class="campos">
             <label for="grado">Grado</label>
-            <select class="seleccionar-grado" name="grado" id="grado">
+            <select class="seleccionar-grado" name="grado" id="gradoCandidato">
               <option value="Seleccionar">Seleccionar Grado</option>
               <option value="6">Grado 6</option>
               <option value="7">Grado 7</option>
@@ -89,7 +89,7 @@
               <option value="11">Grado 11</option>
             </select>
           </div>
-          <button class="btn-registrar" type="submit">Registrar Estudiante</button>
+          <button class="btn-registrar disabled" id="registrarCandidato" disabled type="submit">Registrar Candidato</button>
         </form>
       </section>
     </main>
