@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, Notification } = require("electron");
 const path = require("path");
 let db = require("./database");
+const { Console } = require("console");
 
 let win;
 let winlogin;
@@ -164,6 +165,37 @@ function registrarCandidato(obj) {
         title: "Ingresar Candidato",
         body: "Candidato Registrado Correctamente",
       }).show();
+    }
+  });
+}
+
+//Obtengo los datos para buscar votantes
+ipcMain.handle("buscarVotante", (event, obj) => {
+  //LLamo a la funcion para obtener los votantes
+  buscarVotante(obj);
+});
+//funcion para obtener los votantes
+function buscarVotante(obj) {
+  const { AbuscarCodigoVotantes } = obj;
+  console.log(obj);
+  let sql = `SELECT * FROM votantes WHERE codestudiantil = ?`;
+  console.log(sql);
+
+  db.query(sql, [AbuscarCodigoVotantes], (error, results, fields) => {
+    if (error) {
+      console.log(error);
+    }
+    console.log("el archivo es");
+    console.log(results);
+    if (results.length === 0) {
+      new Notification({
+        title: "Votante no encontrado",
+        body: "Escriba correctamente el Codigo Estudiantil",
+      }).show();
+    } else {
+      // Realizar acciones con los resultados obtenidos
+
+      win.webContents.send("votanteEncontrado", results[0]);
     }
   });
 }

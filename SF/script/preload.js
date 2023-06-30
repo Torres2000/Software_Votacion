@@ -4,11 +4,21 @@ let identificacionVotantes;
 let nombreVotantes;
 let apellidoVotantes;
 let gradoVotantes;
+//Variables para el archivo insertar candidato
 let codigoCandidato;
 let identificacionCandidato;
 let nombreCandidato;
 let apellidoCandidato;
 let gradoCandidato;
+
+//Variables para el archivo Buscar Votantes
+let AidVotantes;
+let AbuscarCodigoVotantes;
+let AcodigoVotantes;
+let AidentificacionVotantes;
+let AnombreVotantes;
+let AapellidoVotantes;
+let AgradoVotantes;
 let btn_registrar_votantes;
 let mylist = document.getElementById("mylist");
 
@@ -36,6 +46,14 @@ window.onload = function () {
   nombreCandidato = document.getElementById("nombreCandidato");
   apellidoCandidato = document.getElementById("apellidoCandidato");
   gradoCandidato = document.getElementById("gradoCandidato");
+
+  //obtenemos los datos de los votantes para actualizarlo
+  AbuscarCodigoVotantes = document.getElementById("Abuscar-codigo-votantes");
+  AcodigoVotantes = document.getElementById("Acodigo-votantes");
+  AidentificacionVotantes = document.getElementById("Aidentificacion-votantes");
+  AnombreVotantes = document.getElementById("Anombre-votantes");
+  AapellidoVotantes = document.getElementById("Aapellido-votantes");
+  AgradoVotantes = document.getElementById("Agrado-votantes");
 };
 
 // Definir la función en el contexto del proceso principal
@@ -93,7 +111,6 @@ ipcRenderer.on("listaCandidatos", (event, results) => {
 contextBridge.exposeInMainWorld("insertarVotante", {
   insertarVotantes: insertarVotantes,
 });
-
 async function insertarVotantes() {
   console.log("Función llamada desde insertar votantes");
   const obj = {
@@ -125,3 +142,32 @@ async function insertarCandidatos() {
 
   ipcRenderer.invoke("registrarCandidato", obj);
 }
+
+//Codigo para buscar el votante
+// Exponer la función al proceso de renderizado
+contextBridge.exposeInMainWorld("buscarVotante", {
+  buscarVotantes: buscarVotantes,
+});
+
+async function buscarVotantes() {
+  console.log("Función llamada desde insertar candidato");
+
+  const obj = {
+    AbuscarCodigoVotantes: AbuscarCodigoVotantes.value,
+  };
+  console.log("El dato a buscar es");
+  console.log(obj);
+
+  await ipcRenderer.invoke("buscarVotante", obj);
+}
+ipcRenderer.on("votanteEncontrado", (event, results) => {
+  let template = "";
+  const list = results;
+
+  AidVotantes = results.nombre;
+  AcodigoVotantes.value = results.codestudiantil;
+  AidentificacionVotantes.value = results.identificacion;
+  AnombreVotantes.value = results.nombre;
+  AapellidoVotantes.value = results.apellido;
+  AgradoVotantes.value = results.grado;
+});
