@@ -126,6 +126,20 @@ function obtenerVotante() {
     win.webContents.send("listaVotantes", results);
   });
 }
+ipcMain.handle("obtenerCandidatos", () => {
+  //LLamo a la funcion para obtener los votantes
+  obtenerCandidato();
+});
+//funcion para obtener los votantes
+function obtenerCandidato() {
+  db.query("SELECT identificacion, codestudiantil, nombre, apellido, grado FROM candidatos", (error, results, fields) => {
+    if (error) {
+      console.log("E" + error);
+    }
+
+    win.webContents.send("listaCandidatos", results);
+  });
+}
 //Obtengo los datos para registrar los candidatos
 ipcMain.handle("registrarCandidato", (event, obj) => {
   //LLamo a la funcion y le envio los datos para hacer el insert

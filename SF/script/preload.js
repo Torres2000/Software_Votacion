@@ -63,6 +63,31 @@ ipcRenderer.on("listaVotantes", (event, results) => {
   });
   mylist.innerHTML = template;
 });
+// Definir la función en el contexto del proceso principal
+async function mostrarCandidatos() {
+  console.log("Función llamada desde el proceso principal");
+  await ipcRenderer.invoke("obtenerCandidatos");
+}
+// Exponer la función al proceso de renderizado
+contextBridge.exposeInMainWorld("listaCandidatos", {
+  mostrarCandidatos: mostrarCandidatos,
+});
+ipcRenderer.on("listaCandidatos", (event, results) => {
+  let template = "";
+  const list = results;
+  list.forEach((element) => {
+    template += `
+         <tr>
+            <td>${element.identificacion}</td>
+            <td>${element.codestudiantil}</td>
+            <td>${element.nombre}</td>
+            <td>${element.apellido}</td>
+            <td>${element.grado}</td>
+         </tr>
+      `;
+  });
+  mylist.innerHTML = template;
+});
 
 //Codigo nuevos para insertar votantes
 contextBridge.exposeInMainWorld("insertarVotante", {

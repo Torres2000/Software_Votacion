@@ -56,7 +56,7 @@ formulario.addEventListener("submit", function (event) {
   if (validadTexto.test(nombreCandidato.value) && validadTexto.test(apellidoCandidato.value)) {
     alert("Nombe esta bueno");
     window.insertarCandidato.insertarCandidatos();
-    formulario.submit();
+    //formulario.submit();
   } else {
     alert("Nombre y apellidos son solo texto");
   }
